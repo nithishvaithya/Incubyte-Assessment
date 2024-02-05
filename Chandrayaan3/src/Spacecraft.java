@@ -43,17 +43,104 @@ public class Spacecraft {
         this.direction = direction;
     }
 
+    public void moveForward() {
+        switch (direction) {
+            case 'N':
+                y++;
+                break;
+            case 'S':
+                y--;
+                break;
+            case 'E':
+                x++;
+                break;
+            case 'W':
+                x--;
+                break;
+            case 'U':
+                z++;
+                break;
+            case 'D':
+                z--;
+                break;
+        }
+    }
 
-    public void moveForward() {}
+    public void moveBackward() {
+        switch (direction) {
+            case 'N':
+                y--;
+                break;
+            case 'S':
+                y++;
+                break;
+            case 'E':
+                x--;
+                break;
+            case 'W':
+                x++;
+                break;
+            case 'U':
+                z--;
+                break;
+            case 'D':
+                z++;
+                break;
+        }
+    }
 
-    public void moveBackward() {}
+    public void turnLeft() {
+        switch (direction) {
+            case 'N':
+                direction = 'W';
+                break;
+            case 'S':
+                direction = 'E';
+                break;
+            case 'E':
+                direction = 'N';
+                break;
+            case 'W':
+                direction = 'S';
+                break;
+        }
+    }
 
-    public void turnLeft() {}
+    public void turnRight() {
+        switch (direction) {
+            case 'N':
+                direction = 'E';
+                break;
+            case 'S':
+                direction = 'W';
+                break;
+            case 'E':
+                direction = 'S';
+                break;
+            case 'W':
+                direction = 'N';
+                break;
+        }
+    }
 
-    public void turnRight() {}
+    public void turnUp() {
+        if (direction == 'N' || direction == 'S') {
+            direction = 'U';
+        } else if (direction == 'U') {
+            direction = 'S';
+        } else if (direction == 'D') {
+            direction = 'N';
+        }
+    }
 
-    public void turnUp() {}
+    public void turnDown() {
+        if (direction == 'N' || direction == 'S') {
+            direction = 'D';
+        } else if (direction == 'D') {
+            direction = 'S';
+        } else if (direction == 'U') {
+            direction = 'N';
+        }
+    }
 
-    public void turnDown() {}
-    
 }
